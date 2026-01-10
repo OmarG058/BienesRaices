@@ -11,15 +11,15 @@
     <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="build/img/logo.svg" alt="Logotipo Bienes Raices">
                 </a>
 
                 <nav class="navegacion">
-                    <a href="nosotros.html">Nosotro</a>
-                    <a href="anuncios.html">Anuncios</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="nosotros.php">Nosotro</a>
+                    <a href="anuncios.php">Anuncios</a>
+                    <a href="blog.php">Blog</a>
+                    <a href="contacto.php">Contacto</a>
                 </nav>
             </div> <!--.barra-->
              
@@ -37,10 +37,10 @@
         <div class="contenedor contenedor-footer">
             
                 <nav class="navegacion">
-                    <a href="nosotros.html">Nosotro</a>
-                    <a href="anuncios.html">Anuncios</a>
-                    <a href="blog.html">Blog</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="nosotros.php">Nosotro</a>
+                    <a href="anuncios.php">Anuncios</a>
+                    <a href="blog.php">Blog</a>
+                    <a href="contacto.php">Contacto</a>
                 </nav>
         </div>
 
