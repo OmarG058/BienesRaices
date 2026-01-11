@@ -1,8 +1,7 @@
 <?php
-
-    $inicio = true;
-    include 'includes/templates/header.php';
-   
+    declare (strict_types = 1); //verifica los tipos de parametros que espera la funcion 
+    require 'includes/funciones.php';   
+    incluirTemplate('header',$inicio = true);
  ?>
     
 
@@ -207,5 +206,5 @@
     </div>
 
 <?php   
-    include 'includes/templates/footer.php'
+    incluirTemplate('footer');
 ?>

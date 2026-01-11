@@ -17,7 +17,7 @@ function darkMode() {
 function eventListeners() {
 
     const prefiereDarkmode = window.matchMedia('(prefers-color-scheme: dark)');
-    // console.log(prefiereDarkmode.matches);
+    console.log(prefiereDarkmode.matches);
     
     if (prefiereDarkmode.matches) {
         document.body.classList.add('dark-mode')
@@ -25,15 +25,7 @@ function eventListeners() {
         document.body.classList.remove('dark-mode');
     }
 
-    prefiereDarkmod.addEventListener('Change', function(){
 
-        if (prefiereDarkmode.matches) {
-            document.body.classList.add('dark-mode')
-        } else {
-            document.body.classList.remove('dark-mode');
-        }
-    });
-    
     const mobilMenu = document.querySelector('.mobile-menu');
 
     mobilMenu.addEventListener('click',navegacionresponcive);
