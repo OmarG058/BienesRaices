@@ -3,12 +3,56 @@
     require '../../includes/config/database.php';
     $db = conectarDb();
 
+    //Array con mensajes de errores
+    $errores = [];
 
+    //Ejecutar el codigo despues de la validacion
     if($_SERVER["REQUEST_METHOD"] === 'POST') {
 
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
+        // super global para verificar que envia el servidor _SERVER _POST _GET accedemos a ellos como arreglos
+        // echo "<pre>";
+        //  var_dump($_POST);
+        // echo "</pre>";
+
+        $titulo = $_POST['titulo'];
+        $precio = $_POST['precio'];
+        $descripcion = $_POST['descripcion'];
+        $habitaciones = $_POST['habitaciones'];
+        $wc = $_POST['wc'];
+        $estacionamiento = $_POST['estacionamiento'];
+        $vendedor = $_POST['vendedor']; 
+
+        if(!$titulo) {
+            $errores [] = "Debes añadir un titulo";
+        }
+        
+        if(!$precio) {
+            $errores [] = "Debes añadir un precio";
+        }
+
+        if(strlen($descripcion) < 50 ) {
+            $errores [] = "la descripcion es obligatoria y debe tener almenos 50 caracteres";
+        }
+
+        var_dump($errores);
+
+        exit;
+
+        //INSERTAR EN LA BASE DE DATOS 
+        $query = "INSERT INTO propiedades 
+            (titulo, precio, dscripcion, habitaciones, wc, estacionamiento, vendedores_Id )
+            VALUES ('$titulo', '$precio', '$descripcion','$habitaciones', '$wc', '$estacionamiento', '$vendedor')"; 
+
+        echo $query;
+
+        $resultado = mysqli_query($db, $query);
+
+        if ($resultado === true) {
+            echo "insertado corrctamente ";
+            echo var_dump($resultado);
+        } else {
+            echo "no se inserto";
+        }
     }
          
 
@@ -36,26 +80,26 @@
             <input type="file" id="imagen" accept="image/jpeg, image/png">
 
             <label for="descripcion">Descripcion:</label>
-            <textarea name="" id="descripcion" name="descripcion" placeholder="Descripcion de la propiedad"></textarea>
+            <textarea id="descripcion" name="descripcion" placeholder="Descripcion de la propiedad"></textarea>
         </fieldset>
 
         <fieldset>
             <legend>Informacion de la Propiedad</legend>
 
             <label for="habitaciones">Numero de Habitaciones</label>
-            <input type="number" for="habitaciones" placeholder="Ejem: 3" min="1" max="8">
+            <input type="number" for="habitaciones" name="habitaciones" placeholder="Ejem: 3" min="1" max="8">
 
             <label for="wc">Baños:</label>
-            <input type="number" min="1" max="9" id="wc" placeholder="Ejem: 2">
+            <input type="number" min="1" max="9" id="wc" name="wc" placeholder="Ejem: 2">
 
             <label for="estacionamiento">Estacionamineto:</label>
-            <input type="number" min="1" max="10" id="estacionamiento" placeholder="Ejem: 2">            
+            <input type="number" min="1" max="10" id="estacionamiento" name="estacionamiento" placeholder="Ejem: 2">            
         </fieldset>
 
 
         <fieldset>
             <legend>Vendedor</legend>
-            <select name="" id="">
+            <select name="vendedor" id="">
                 <option value="1">Omar </option>
                 <option value="2">Ana</option>
             </select>
